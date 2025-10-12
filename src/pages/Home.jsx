@@ -2,6 +2,7 @@ import Hero from "../components/home/Hero";
 import Aboutus from "../components/home/Aboutus"
 import Servicesection from "../components/home/Servicesection"
 import Testimonals from "../components/home/Testimonals"
+// import Ourproducts from "../components/home/Ourproducts"
 import FaqSection from "../components/home/FaqSection"
 
 function Home() {
@@ -11,6 +12,7 @@ function Home() {
    <Aboutus />
    <Servicesection />
   <Testimonals />
+  {/* <Ourproducts /> */}
   <FaqSection />
   </>
   );

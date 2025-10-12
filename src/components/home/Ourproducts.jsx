@@ -4,31 +4,36 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import crust1 from "../../assets/crust/crust1.jpg";
-import crust2 from "../../assets/crust/crust2.jpg";
-import crust3 from "../../assets/crust/crust3.jpg";
-import ceph1 from "../../assets/ceph/ceph1.jpg";
-import ceph2 from "../../assets/ceph/ceph2.jpg";
-import ceph3 from "../../assets/ceph/ceph3.jpg";
-import fish1 from "../../assets/fishes/fish1.jpg";
-import fish2 from "../../assets/fishes/fish2.jpg";
-import fish3 from "../../assets/fishes/fish3.jpg";
-
 export default function RecentWorks() {
   const works = [
-    { id: 1, img: crust1, title: "Crustacean Harvest", desc: "Premium prawns and lobsters freshly caught and processed." },
-    { id: 2, img: crust2, title: "Deep Sea Crabs", desc: "Sustainably sourced crabs packed with ocean freshness." },
-    { id: 3, img: crust3, title: "Tiger Prawns", desc: "Juicy tiger prawns ready for export-grade quality." },
-    { id: 4, img: ceph1, title: "Squid Collection", desc: "Expertly cleaned and processed squid selections." },
-    { id: 5, img: ceph2, title: "Octopus Premium", desc: "Tender octopus preserved to perfection for global export." },
-    { id: 6, img: ceph3, title: "Cut Squid Rings", desc: "Ready-to-cook squid rings, cleaned and blast frozen." },
-    { id: 7, img: fish1, title: "Fresh Mackerel", desc: "Rich in taste, freshly sourced from coastal waters." },
-    { id: 8, img: fish2, title: "Ribbon Fish", desc: "High-quality ribbon fish, frozen for extended freshness." },
-    { id: 9, img: fish3, title: "Seer Fish", desc: "Meaty seer fish processed under export-grade standards." },
+    {
+      id: 1,
+      img: "https://source.unsplash.com/600x400/?seafood,fish",
+      title: "Ocean Feast",
+      desc: "Fresh catches crafted into culinary delights.",
+    },
+    {
+      id: 2,
+      img: "https://source.unsplash.com/600x400/?boat,fish-market",
+      title: "Coastal Cuisine",
+      desc: "Blending traditional flavors with modern presentation.",
+    },
+    {
+      id: 3,
+      img: "https://source.unsplash.com/600x400/?shrimp,food",
+      title: "Marine Delights",
+      desc: "Curated seafood specialties from our local coast.",
+    },
+    {
+      id: 4,
+      img: "https://source.unsplash.com/600x400/?fish,restaurant",
+      title: "Seafood Platters",
+      desc: "Perfectly seasoned and beautifully plated.",
+    },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-[#e6f6fd] to-[#e6f6fd] py-28 md:py-36 rounded-t-[80px] mt-20 py-20">
+    <section className="bg-gray-100 py-20">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-12">
@@ -63,7 +68,7 @@ export default function RecentWorks() {
                 <img
                   src={work.img}
                   alt={work.title}
-                  className="w-auto h-auto object-cover"
+                  className="w-full h-64 object-cover"
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-2xl font-semibold text-gray-800">
@@ -76,14 +81,16 @@ export default function RecentWorks() {
           ))}
         </Swiper>
 
-        {/* View More Button */}
-        <div className="text-center mt-1 ">
-          <button className="px-8 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-800 transition duration-300 ">
-            View More
-          </button>
+        {/* Footer Text */}
+        <div className="text-center mt-12">
+          <p className="text-gray-700 text-lg">
+            <span className="font-bold text-primary">Free</span> — Experience the
+            taste everyone’s talking about.{" "}
+            <a href="/contact" className="text-primary underline font-medium">
+              Come in or order online!
+            </a>
+          </p>
         </div>
-
-    
       </div>
     </section>
   );
