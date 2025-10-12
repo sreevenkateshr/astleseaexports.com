@@ -9,4 +9,5 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  RUST_VERSION = "1.78.2"  
+  NPM_VERSION = "10"
+
