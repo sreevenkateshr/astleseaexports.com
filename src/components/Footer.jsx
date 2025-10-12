@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer
       className="relative bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/src/assets/FOOTERSEA.jpg')" }} // your sea image
+      style={{ backgroundImage: "url('/src/assets/footersea.jpg')" }} // your sea image
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-blue-900/70"></div>

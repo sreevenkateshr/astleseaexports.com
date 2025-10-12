@@ -1,5 +1,5 @@
 import React from "react";
-import coverImage from "../assets/FOOTERSEA.jpg"; 
+import coverImage from "../assets/footersea.jpg"; 
 
 export default function Process() {
   const processSteps = [

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import coverImage from "../assets/FOOTERSEa.jpg";
+import coverImage from "../assets/footersea.jpg";
 
 // 🦐 Import all Crustacean images
 import crust1 from "../assets/crust/crust1.jpg";
