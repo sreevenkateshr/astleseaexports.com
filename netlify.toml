@@ -11,3 +11,6 @@
   NODE_VERSION = "20"
   NPM_VERSION = "10"
 
+[build]
+  command = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source $HOME/.cargo/env && npm run build"
+  publish = "build"
