@@ -1,12 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["**/*"], "nodeVersion": "22.x" }
-    }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
   ]
 }

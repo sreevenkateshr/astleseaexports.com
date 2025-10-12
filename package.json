@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run neon-build && vite build",
-    "neon-build": "neon build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -34,10 +33,10 @@
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.9"
   },
- "engines": {
-  "node": "22.x",
-  "npm": "10.x"
-},
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
+  },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "eslint.config.js",
   "keywords": [],
