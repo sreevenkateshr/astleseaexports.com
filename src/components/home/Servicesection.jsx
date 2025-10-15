@@ -1,89 +1,81 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-
 import crust1 from "../../assets/crust/crust1.jpg";
-import crust2 from "../../assets/crust/crust2.jpg";
-import crust3 from "../../assets/crust/crust3.jpg";
 import ceph1 from "../../assets/ceph/ceph1.jpg";
-import ceph2 from "../../assets/ceph/ceph2.jpg";
-import ceph3 from "../../assets/ceph/ceph3.jpg";
 import fish1 from "../../assets/fishes/fish1.jpg";
 import fish2 from "../../assets/fishes/fish2.jpg";
-import fish3 from "../../assets/fishes/fish3.jpg";
 
 export default function RecentWorks() {
   const works = [
-    { id: 1, img: crust1, title: "Crustacean Harvest", desc: "Premium prawns and lobsters freshly caught and processed." },
-    { id: 2, img: crust2, title: "Deep Sea Crabs", desc: "Sustainably sourced crabs packed with ocean freshness." },
-    { id: 3, img: crust3, title: "Tiger Prawns", desc: "Juicy tiger prawns ready for export-grade quality." },
-    { id: 4, img: ceph1, title: "Squid Collection", desc: "Expertly cleaned and processed squid selections." },
-    { id: 5, img: ceph2, title: "Octopus Premium", desc: "Tender octopus preserved to perfection for global export." },
-    { id: 6, img: ceph3, title: "Cut Squid Rings", desc: "Ready-to-cook squid rings, cleaned and blast frozen." },
-    { id: 7, img: fish1, title: "Fresh Mackerel", desc: "Rich in taste, freshly sourced from coastal waters." },
-    { id: 8, img: fish2, title: "Ribbon Fish", desc: "High-quality ribbon fish, frozen for extended freshness." },
-    { id: 9, img: fish3, title: "Seer Fish", desc: "Meaty seer fish processed under export-grade standards." },
+    {
+      id: 1,
+      img: fish1,
+      title: "Fresh Mackerel",
+      desc: "Rich in taste, freshly sourced from coastal waters.",
+    },
+    {
+      id: 2,
+      img: fish2,
+      title: "Ribbon Fish",
+      desc: "High-quality ribbon fish, frozen for extended freshness.",
+    },
+    {
+      id: 3,
+      img: ceph1,
+      title: "Squid Collection",
+      desc: "Expertly cleaned and processed squid selections.",
+    },
+    {
+      id: 4,
+      img: crust1,
+      title: "Tiger Prawns",
+      desc: "Juicy tiger prawns ready for export-grade quality.",
+    },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-[#e6f6fd] to-[#e6f6fd] py-28 md:py-36 rounded-t-[80px] mt-20 py-20">
+    <section className="bg-gradient-to-b from-[#e6f6fd] to-[#e6f6fd] py-28 md:py-36 mt-20 rounded-[80px] shadow-inner">
       <div className="container mx-auto px-6">
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h3 className="text-primary font-semibold uppercase tracking-widest">
+        {/* Section Header */}
+        <div className="text-center mb-14">
+          <h3 className="text-blue-700 font-semibold uppercase tracking-widest">
             Recent Works
           </h3>
           <h2 className="text-4xl font-bold mt-2 text-gray-800">
-            Showcasing Our <span className="text-primary">Coastal Creations</span>
+            Showcasing Our <span className="text-blue-700">Coastal Creations</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            From the shore to your plate — a glimpse of our finest culinary craftsmanship.
+            From the shore to your plate — a glimpse of our finest seafood craftsmanship.
           </p>
         </div>
 
-        {/* Swiper Gallery */}
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          navigation
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          spaceBetween={30}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          className="mySwiper"
-        >
+        {/* 4-Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {works.map((work) => (
-            <SwiperSlide key={work.id}>
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-                <img
-                  src={work.img}
-                  alt={work.title}
-                  className="w-auto h-auto object-cover"
-                />
-                <div className="p-6 text-center">
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    {work.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2">{work.desc}</p>
-                </div>
+            <div
+              key={work.id}
+              className="bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
+            >
+              <img
+                src={work.img}
+                alt={work.title}
+                className="w-full h-56 object-cover rounded-t-[2rem]"
+              />
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {work.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{work.desc}</p>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
 
         {/* View More Button */}
-        <div className="text-center mt-1 ">
-          <button className="px-8 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-800 transition duration-300 ">
+        <div className="text-center mt-14">
+          <button className="px-8 py-3 bg-blue-700 text-white font-semibold rounded-full shadow-md hover:bg-blue-800 transition duration-300">
             View More
           </button>
         </div>
-
-    
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import Servicesection from "../components/home/Servicesection"
 import Testimonals from "../components/home/Testimonals"
 // import Ourproducts from "../components/home/Ourproducts"
 import FaqSection from "../components/home/FaqSection"
+import Internationalexports from "../components/home/Internationalexports";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
   <Testimonals />
   {/* <Ourproducts /> */}
   <FaqSection />
+  <Internationalexports />
   </>
   );
 }

@@ -93,11 +93,25 @@ const productsData = [
   { id: 216, name: "Fish Item 16", category: "Fishes", image: fish16, desc: "Fresh fish product." },
   { id: 217, name: "Fish Item 17", category: "Fishes", image: fish17, desc: "Fresh fish product." },
   { id: 218, name: "Fish Item 18", category: "Fishes", image: fish18, desc: "Fresh fish product." },
+
+
+//dry fishes
+  { id: 301,   name: "Fish Item 1", category: "Dry Fishes", image: fish1, desc: "Fresh fish product." },
+  { id: 302, name: "Fish Item 2", category: "Dry Fishes", image: fish2, desc: "Fresh fish product." },
+  { id: 303, name: "Fish Item 3", category: "Dry Fishes", image: fish3, desc: "Fresh fish product." },
+  { id: 304, name: "Fish Item 4", category: "Dry Fishes", image: fish4, desc: "Fresh fish product." },
+  { id: 305, name: "Fish Item 5", category: "Dry Fishes", image: fish5, desc: "Fresh fish product." },
+  { id: 306, name: "Fish Item 6", category: "Dry Fishes", image: fish6, desc: "Fresh fish product." },
+  { id: 307, name: "Fish Item 7", category: "Dry Fishes", image: fish7, desc: "Fresh fish product." },
+  { id: 308, name: "Fish Item 8", category: "Dry Fishes", image: fish8, desc: "Fresh fish product." },
+  { id: 309, name: "Fish Item 9", category: "Dry Fishes", image: fish9, desc: "Fresh fish product." },
+  { id: 310, name: "Fish Item 10", category: "Dry Fishes", image: fish10, desc: "Fresh fish product." },
+
 ];
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("Show All");
-  const categories = ["Show All", "Crustaceans", "Cephalopods", "Fishes"];
+  const categories = ["Show All", "Crustaceans", "Cephalopods", "Fishes", "Dry Fishes"];
 
   const filteredProducts =
     selectedCategory === "Show All"
