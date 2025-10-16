@@ -7,7 +7,6 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
-import axios from "axios";
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +17,9 @@ const Contactus = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
+  // ✅ Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,6 +28,7 @@ const Contactus = () => {
     }));
   };
 
+  // ✅ Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,13 +39,26 @@ const Contactus = () => {
       !formData.email ||
       !formData.message
     ) {
-      alert("Please fill in all required fields.");
+      alert("⚠️ Please fill in all required fields.");
       return;
     }
 
+    setLoading(true);
+
     try {
-      const res = await axios.post("http://localhost:5000/send-email", formData);
-      if (res.status === 200) {
+      // ✅ Automatically switches between localhost (dev) & production (vercel)
+      const response = await fetch(
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5000/api/send-email"
+          : "/api/send-email",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
         alert("✅ Message sent successfully!");
         setFormData({
           firstname: "",
@@ -51,10 +67,15 @@ const Contactus = () => {
           phonenumber: "",
           message: "",
         });
+      } else {
+        const error = await response.text();
+        alert(`❌ Failed to send message: ${error}`);
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error:", error);
       alert("❌ Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -129,6 +150,7 @@ const Contactus = () => {
                 className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
+
             <div>
               <label className="block text-gray-700 font-medium">
                 Last Name
@@ -142,6 +164,7 @@ const Contactus = () => {
                 className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
+
             <div className="md:col-span-2">
               <label className="block text-gray-700 font-medium">Email</label>
               <input
@@ -153,6 +176,7 @@ const Contactus = () => {
                 className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
+
             <div className="md:col-span-2">
               <label className="block text-gray-700 font-medium">
                 Phone Number
@@ -166,6 +190,7 @@ const Contactus = () => {
                 className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
+
             <div className="md:col-span-2">
               <label className="block text-gray-700 font-medium">Message</label>
               <textarea
@@ -176,12 +201,16 @@ const Contactus = () => {
                 className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none h-32 resize-none"
               ></textarea>
             </div>
+
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+                disabled={loading}
+                className={`w-full ${
+                  loading ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
+                } text-white font-semibold py-3 px-6 rounded-lg transition`}
               >
-                Send Message ✈️
+                {loading ? "Sending..." : "Send Message ✈️"}
               </button>
             </div>
           </form>
