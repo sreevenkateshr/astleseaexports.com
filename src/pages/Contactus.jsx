@@ -47,16 +47,17 @@ const Contactus = () => {
 
     try {
       // ✅ Automatically switches between localhost (dev) & production (vercel)
-      const response = await fetch(
-        import.meta.env.MODE === "development"
-          ? "http://localhost:5000/api/send-email"
-          : "/api/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const API_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000/api/send-email" // local backend during development
+    : "https://astleseaexports-com-2.onrender.com/api/send-email";
+
+const response = await fetch(API_URL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+
 
       if (response.ok) {
         alert("✅ Message sent successfully!");
