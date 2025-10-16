@@ -1,13 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post("/api/send-email", async (req, res) => {
+app.post("/send-email", async (req, res) => {
   const { firstname, lastname, email, message, phonenumber } = req.body;
 
   if (!firstname || !email || !message || !phonenumber) {
@@ -18,8 +21,8 @@ app.post("/api/send-email", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user:'astleseaexports@gmail.com', // use env in vercel
-        pass: 'yivuqibqdiwevasu', // not hardcoded
+        user:'astleseaexports@gmail.com',
+        pass: 'yivuqibqdiwevasu',
       },
     });
 
@@ -27,11 +30,10 @@ app.post("/api/send-email", async (req, res) => {
       from: email,
       to: process.env.EMAIL_USER,
       subject: "New Message from Website",
-      text: `Name: ${firstname} ${lastname}\nPhone: ${phonenumber}\nEmail: ${email}\nMessage:\n${message}`,
+      text: `Name: ${firstname} ${lastname}\nPhone Number: ${phonenumber}\nEmail: ${email}\nMessage:\n${message}`,
     };
 
     await transporter.sendMail(mailOptions);
-
     res.status(200).json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email sending error:", error);
@@ -39,9 +41,6 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV !== "production") {
-  app.listen(5000, () => console.log("Server running on http://localhost:5000"));
-}
-
-// ✅ This is important for Vercel
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
