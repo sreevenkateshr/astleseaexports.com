@@ -102,7 +102,7 @@ export default function Aboutus() {
           {/* Text Content */}
           <div className="md:col-span-2">
             <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wide">
-              Manikandan
+              Astle
             </h2>
             <p className="text-sm uppercase tracking-widest text-gray-500 mt-1">
               Founder
