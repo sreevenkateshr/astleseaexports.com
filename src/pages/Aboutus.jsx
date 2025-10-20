@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import founderimg from "../../src/assets/founder/Founder.jpg";
+import founder1 from "../../src/assets/founder/founder1.jpg";
 
 
 const images = [
@@ -57,19 +57,8 @@ export default function Aboutus() {
             ))}
           </Swiper>
 
-          <p className="mt-6 text-gray-700 leading-relaxed text-base md:text-lg">
-            Paperboat is a wedding photography studio based in Kerala. We
-            specialize in creative and artistic wedding photography with a
-            natural relaxed style. Since 2010, couples have chosen Paper Boat
-            Wedding Studio for our breathtaking photography, relentless
-            professionalism, and personalized service. Our style is romantic,
-            timeless, and authentic.
-          </p>
 
-          <p className="mt-4 text-sm uppercase tracking-wide text-gray-500">
-            Have a look through our website at what we can offer you to make
-            your wedding day the most memorable of your life.
-          </p>
+
         </div>
 
         {/* Right: Text content */}
@@ -98,20 +87,17 @@ export default function Aboutus() {
             Contact Us
           </a>
 
-          <p className="mt-8 text-gray-700 leading-relaxed text-base md:text-lg">
-            In 2017 we announced our new arrival – the Docu-Film, a perfect
-            completion of your photographic needs.
-          </p>
+          
 
           {/* Signature */}
           <p className="mt-10 text-2xl italic text-[#B78D7C]">
-            — Team Studio.in
+            — Team Astleseaexports
           </p>
         </div>
       </div>
 
       {/* Founder Section */}
-      <section className="bg-gray-50 py-16 px-6 lg:px-16">
+      <section className="bg-gradient-to-b from-[#e6f6fd] to-[#e6f6fd] py-28 md:py-36 rounded-t-[80px] mt-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
           {/* Text Content */}
           <div className="md:col-span-2">
@@ -132,7 +118,7 @@ export default function Aboutus() {
           {/* Image */}
           <div className="flex justify-center">
             <img
-              src={founderimg}
+              src={founder1}
               alt="Manikandan"
               className="w-56 h-56 md:w-64 md:h-64 object-cover rounded-2xl shadow-lg transform hover:scale-105 transition duration-300"
             />

@@ -1,11 +1,12 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from "react-icons/fa";
+import footersea from "../../src/assets/footer/footersea.jpg"; // remove .jpg in import
 
 export default function Footer() {
   return (
     <footer
       className="relative bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/src/assets/footer/footersea.jpg')" }} // your sea image
+      style={{ backgroundImage: `url(${footersea})` }} // fix here
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-blue-900/70"></div>
@@ -30,18 +31,10 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex space-x-4 mt-6 text-xl">
-            <a href="#" className="hover:text-gray-300">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="hover:text-gray-300">
-              <FaTwitter />
-            </a>
-            <a href="#" className="hover:text-gray-300">
-              <FaGoogle />
-            </a>
-            <a href="#" className="hover:text-gray-300">
-              <FaInstagram />
-            </a>
+            <a href="#" className="hover:text-gray-300"><FaFacebookF /></a>
+            <a href="#" className="hover:text-gray-300"><FaTwitter /></a>
+            <a href="#" className="hover:text-gray-300"><FaGoogle /></a>
+            <a href="#" className="hover:text-gray-300"><FaInstagram /></a>
           </div>
         </div>
 
@@ -72,7 +65,7 @@ export default function Footer() {
             Abad Fisheries Private Limited,<br />
             1st Floor, BayPride Mall,<br />
             Marine Drive,<br />
-            kanyakumari - 682031
+            Kanyakumari - 682031
           </p>
           <p className="mt-2 text-sm">
             E-mail:{" "}
@@ -80,12 +73,6 @@ export default function Footer() {
               info@astle.in
             </a>
           </p>
-          {/* <p className="text-sm">
-            Job Enquiries:{" "}
-            <a href="mailto:careers@abad.in" className="hover:underline">
-              careers@abad.in
-            </a>
-          </p> */}
         </div>
       </div>
 

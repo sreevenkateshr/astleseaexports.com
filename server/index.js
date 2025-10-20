@@ -10,27 +10,28 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post("/send-email", async (req, res) => {
+app.post("/api/send-email", async (req, res) => {
   const { firstname, lastname, email, message, phonenumber } = req.body;
 
-  if (!firstname || !email || !message || !phonenumber) {
-    return res.status(400).json({ error: "All fields are required." });
+  if (!firstname || !email || !message) {
+    return res.status(400).json({ error: "Firstname, email, and message are required." });
   }
 
   try {
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user:'astleseaexports@gmail.com',
-        pass: 'yivuqibqdiwevasu',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    let mailOptions = {
-      from: email,
-      to: process.env.EMAIL_USER,
-      subject: "New Message from Website",
-      text: `Name: ${firstname} ${lastname}\nPhone Number: ${phonenumber}\nEmail: ${email}\nMessage:\n${message}`,
+    const mailOptions = {
+      from: `"${firstname} ${lastname}" <${process.env.EMAIL_USER}>`, // your Gmail
+      replyTo: email, // user's email
+      to: process.env.EMAIL_USER, // your receiving email
+      subject: `New Contact Form Submission from ${firstname} ${lastname}`,
+      text: `Name: ${firstname} ${lastname}\nEmail: ${email}\nPhone: ${phonenumber}\nMessage:\n${message}`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -42,5 +43,5 @@ app.post("/send-email", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on https://astleseaexports-com-2.onrender.com`);
+  console.log(`Server running on port ${PORT}`);
 });

@@ -7,6 +7,7 @@ import Contactus from "./pages/Contactus";
 import Products from "./pages/Products";
 import Process from "./pages/Process";
 import Aboutus from "./pages/Aboutus";
+import Galleries from "./pages/Galleries"
 import Blogs from "./pages/Blogs";
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/process" element={<Process />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/galleries" element={<Galleries />} />
         <Route path="/contactus" element={<Contactus />} />
         {/* Catch all undefined routes */}
         <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 - Page Not Found</h1>} />
