@@ -28,11 +28,10 @@ const Contactus = () => {
     }));
   };
 
-  // ✅ Handle form submit
+  // ✅ Submit to Formspree
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (
       !formData.firstname ||
       !formData.lastname ||
@@ -46,18 +45,17 @@ const Contactus = () => {
     setLoading(true);
 
     try {
-      // ✅ Automatically switches between localhost (dev) & production (vercel)
-      const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5000/api/send-email" // local backend during development
-    : "https://astleseaexports-com-2.onrender.com/api/send-email";
-
-const response = await fetch(API_URL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData),
-});
-
+      const response = await fetch("https://formspree.io/f/manpzdrj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          email: formData.email,
+          phonenumber: formData.phonenumber,
+          message: formData.message,
+        }),
+      });
 
       if (response.ok) {
         alert("✅ Message sent successfully!");
@@ -69,8 +67,7 @@ const response = await fetch(API_URL, {
           message: "",
         });
       } else {
-        const error = await response.text();
-        alert(`❌ Failed to send message: ${error}`);
+        alert("❌ Failed to send message. Please try again later.");
       }
     } catch (error) {
       console.error("Error:", error);
