@@ -44,7 +44,7 @@ export default function RecentWorks() {
             Showcasing Our <span className="text-primary">Coastal Creations</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            From the shore to your plate — a glimpse of our finest culinary craftsmanship.
+            From the shore to your plate a glimpse of our finest culinary craftsmanship.
           </p>
         </div>
 

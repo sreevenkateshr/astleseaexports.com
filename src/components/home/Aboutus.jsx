@@ -52,13 +52,17 @@ export default function AboutSection() {
           <h2 className="text-3xl xl:text-4xl font-bold mb-4 xl:mb-6">
             Dedicated Fish Farming & Aqua Services
           </h2>
-          <p className="text-neutral-600 mb-6 xl:mb-10 border-b border-neutral-200 pb-6 xl:pb-10">
-            Providing sustainable fish farming solutions with expert care for
-            quality seafood supply.
+           <p className="text-neutral-600 mb-6 xl:mb-10 border-b border-neutral-200 pb-6 xl:pb-10">
+            At <strong>Astle Sea Exports</strong>, we specialize in sourcing,
+            processing, and exporting premium-quality seafood from the rich
+            coastal waters of Kanyakumari. Our mission is to deliver freshness
+            and quality from the Indian Ocean straight to global markets — with
+            sustainability and hygiene as our core values.
           </p>
 
+
           {/* Four Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xl:gap-6 mb-6 xl:mb-10 border-b border-neutral-200 pb-6 xl:pb-10">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xl:gap-6 mb-6 xl:mb-10 border-b border-neutral-200 pb-6 xl:pb-10">
             {[
               {
                 img: Prawn,
@@ -89,23 +93,23 @@ export default function AboutSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Buttons */}
           <div className="flex gap-4 items-center flex-wrap mb-7 xl:mb-10">
             <a
-              href="about-us.html"
+              href="/aboutus"
               className="bg-blue-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-blue-700 transition"
             >
               About Company →
             </a>
-            <a href="#" className="flex items-center gap-2">
+            <a href="/aboutus" className="flex items-center gap-2">
               <div className="w-14 h-14 rounded-full border border-neutral-300 text-blue-600 flex items-center justify-center">
                 📞
               </div>
               <div>
                 <p className="text-neutral-500 mb-1 text-sm">Call Us Now</p>
-                <p className="text-sm text-neutral-900">6049-464-2076</p>
+                <p className="text-sm text-neutral-900">+91 77085 67055</p>
               </div>
             </a>
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import faq1 from "../../assets/faq-img-1.jpg";
-import faq2 from "../../assets/faq-img-2.jpg";
-import faq3 from "../../assets/faq-img-3.jpg";
+import faq1 from "../../assets/fishess/013.jpg";
+import faq2 from "../../assets/fishess/018.jpg";
+import faq3 from "../../assets/fishess/019.jpg";
 import author1 from "../../assets/about-fish-1.png";
 import author2 from "../../assets/about-fish-1.png";
 import author3 from "../../assets/about-fish-1.png";

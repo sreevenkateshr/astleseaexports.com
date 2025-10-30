@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import coverImage from "../assets/footer/footersea.jpg";
+import coverImage from "../assets/fishess/05.jpg";
 
 // 🦐 Import all Crustacean images
 import crust1 from "../assets/crust/crust1.jpg";
@@ -122,7 +122,7 @@ export default function Products() {
     <section className="bg-gradient-to-br from-gray-100 to-white">
       {/* Cover Image Section */}
       <div
-        className="w-full h-64 sm:h-80 md:h-96 bg-center bg-cover flex items-center justify-center"
+        className="w-auto h-110 sm:h-80 md:h-96 bg-center bg-cover flex items-center justify-center"
         style={{ backgroundImage: `url(${coverImage})` }}
       >
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white px-4 py-2 rounded text-center bg-black/40">
